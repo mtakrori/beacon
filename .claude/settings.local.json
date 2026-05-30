@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const p = require\\('C:/Users/Sammour/Documents/Antigravity/Beacon web/node_modules/sanity/package.json'\\); const e = p.exports['./structure']; console.log\\(JSON.stringify\\(e,null,2\\)\\)\")"
+    ]
+  }
+}
