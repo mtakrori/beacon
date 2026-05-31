@@ -52,10 +52,12 @@ export default function Navbar() {
             </div>
 
             {/* Logo - centered on mobile via absolute, left-aligned on desktop */}
-            <Link href="/" className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex items-center gap-2 group flex-shrink-0">
-              <span className="font-serif text-2xl md:text-3xl tracking-[0.3em] text-gold-gradient font-bold">
-                BEACON
-              </span>
+            <Link href="/" className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex items-center group flex-shrink-0">
+              <img
+                src="/beacon-logo.svg"
+                alt="Beacon — Decor & Light L.L.C"
+                className="h-9 md:h-11 w-auto"
+              />
             </Link>
 
             {/* Desktop Navigation - centered */}

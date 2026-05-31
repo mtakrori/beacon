@@ -15,9 +15,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-6 lg:col-span-1">
             <Link href="/" className="inline-block">
-              <span className="font-serif text-3xl tracking-[0.3em] text-gold-gradient font-bold">
-                BEACON
-              </span>
+              <img
+                src="/beacon-logo.svg"
+                alt="Beacon — Decor & Light L.L.C"
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-zinc-500 leading-relaxed text-sm">
               Luxury throughout the home. Bringing your vision to life with our premium collections of lighting and decor.
