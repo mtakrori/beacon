@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(node -e \"const p = require\\('C:/Users/Sammour/Documents/Antigravity/Beacon web/node_modules/sanity/package.json'\\); const e = p.exports['./structure']; console.log\\(JSON.stringify\\(e,null,2\\)\\)\")",
-      "Bash(xargs sed -i 's/ease: \\\\[0\\\\.16, 1, 0\\\\.3, 1\\\\]/ease: [0.16, 1, 0.3, 1] as [number, number, number, number]/g')"
+      "Bash(xargs sed -i 's/ease: \\\\[0\\\\.16, 1, 0\\\\.3, 1\\\\]/ease: [0.16, 1, 0.3, 1] as [number, number, number, number]/g')",
+      "Bash(xargs sed -i 's/ease: \\\\[0\\\\.16, 1, 0\\\\.3, 1\\\\] as \\\\[number, number, number, number\\\\]/ease: \"easeOut\"/g')"
     ]
   }
 }
