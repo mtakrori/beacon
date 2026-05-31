@@ -2,9 +2,12 @@ import React from 'react';
 import Hero from '@/components/home/Hero';
 import CategoryGrid from '@/components/home/CategoryGrid';
 import ProductSection from '@/components/home/ProductSection';
+import AboutSection from '@/components/home/AboutSection';
+import WhyBeacon from '@/components/home/WhyBeacon';
+import ServicesSection from '@/components/home/ServicesSection';
+import ProjectsSection from '@/components/home/ProjectsSection';
 import SignatureBanner from '@/components/home/SignatureBanner';
 import ProfileDownloadBanner from '@/components/home/ProfileDownloadBanner';
-import BlogGallery from '@/components/home/BlogGallery';
 import ContactSection from '@/components/home/ContactSection';
 import Footer from '@/components/layout/Footer';
 
@@ -39,63 +42,32 @@ const newCollections = [
   }
 ];
 
-const bestSellers = [
-  {
-    id: 'b1',
-    name: 'Eclat Crystal Pendant',
-    price: 499.00,
-    category: 'Pendant',
-    image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: 'b2',
-    name: 'Lumina Velvet Sofa',
-    price: 2899.00,
-    category: 'Furniture',
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: 'b3',
-    name: 'Beacon Signature Lounge',
-    price: 1450.00,
-    category: 'Furniture',
-    image: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: 'b4',
-    name: 'Orbital Brass Pendant',
-    price: 650.00,
-    category: 'Pendant',
-    image: 'https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=800&auto=format&fit=crop'
-  }
-];
-
 export default function Home() {
   return (
     <main className="flex-1 w-full bg-background overflow-hidden">
       <Hero />
       
       <CategoryGrid />
-      
-      <ProductSection 
-        title="New Collections" 
-        subtitle="Just Arrived"
+
+      <AboutSection />
+
+      <WhyBeacon />
+
+      <ProductSection
+        title="Featured Pieces"
+        subtitle="From Our Collections"
         products={newCollections}
         bannerImage="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=2000&auto=format&fit=crop"
-        bannerTitle="New Collections"
+        bannerTitle="Signature Lighting"
       />
-      
-      <ProductSection 
-        title="Featured Pieces" 
-        subtitle="Most Popular"
-        products={bestSellers}
-      />
-      
+
+      <ServicesSection />
+
       <SignatureBanner />
 
-      <ProfileDownloadBanner />
+      <ProjectsSection />
 
-      <BlogGallery />
+      <ProfileDownloadBanner />
 
       <ContactSection />
 
