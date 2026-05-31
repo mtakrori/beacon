@@ -33,7 +33,7 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
   }
 };
 
@@ -136,7 +136,7 @@ export default function ProductSection({ title, subtitle, products, bannerImage,
                 <h4 className="text-sm font-semibold text-white mb-3 line-clamp-1 tracking-wide">
                   {product.name}
                 </h4>
-                <div className="w-6 h-[1px] bg-primary/[0.03]0 mx-auto mb-3" />
+                <div className="w-6 h-[1px] bg-primary/30 mx-auto mb-3" />
                 <p className="text-zinc-500 text-[10px] tracking-[0.2em] uppercase font-medium">
                   Available On Request
                 </p>

@@ -45,7 +45,7 @@ export default function ProductDetailClient({ product }: { product: MockProduct 
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           >
             {/* Main image */}
             <div className="relative aspect-[4/4] overflow-hidden glass-card group mb-3">
@@ -105,7 +105,7 @@ export default function ProductDetailClient({ product }: { product: MockProduct 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number], delay: 0.1 }}
             className="flex flex-col"
           >
             {/* Categories */}
