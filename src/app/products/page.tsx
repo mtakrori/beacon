@@ -10,7 +10,11 @@ export const metadata = {
 
 export default async function ProductsPage() {
   const products = await sanityFetch<MockProduct[]>({
-    query: `*[_type == "product"] | order(_createdAt desc)`,
+    query: `*[_type == "product"] | order(_createdAt desc){
+      _id, title, slug, collection, categories, inStock, variants, material, dimensions, description, featuredItem,
+      "thumbnailUrl": thumbnail.asset->url,
+      "galleryUrls": gallery[].asset->url
+    }`,
     revalidate: 60,
   });
 

@@ -10,7 +10,11 @@ interface Props {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const product = await sanityFetch<MockProduct | undefined>({
-    query: `*[_type == "product" && slug.current == $slug][0]`,
+    query: `*[_type == "product" && slug.current == $slug][0]{
+      _id, title, slug, collection, categories, inStock, variants, material, dimensions, description, featuredItem,
+      "thumbnailUrl": thumbnail.asset->url,
+      "galleryUrls": gallery[].asset->url
+    }`,
     params: { slug },
     revalidate: 60,
   });
@@ -22,7 +26,11 @@ export async function generateMetadata({ params }: Props) {
 export default async function ProductDetailPage({ params }: Props) {
   const { slug } = await params;
   const product = await sanityFetch<MockProduct | undefined>({
-    query: `*[_type == "product" && slug.current == $slug][0]`,
+    query: `*[_type == "product" && slug.current == $slug][0]{
+      _id, title, slug, collection, categories, inStock, variants, material, dimensions, description, featuredItem,
+      "thumbnailUrl": thumbnail.asset->url,
+      "galleryUrls": gallery[].asset->url
+    }`,
     params: { slug },
     revalidate: 60,
   });
