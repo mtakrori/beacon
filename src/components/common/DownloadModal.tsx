@@ -77,7 +77,7 @@ export default function DownloadModal({ isOpen, onClose }: Props) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" as const }}
             className="fixed z-50 inset-0 flex items-center justify-center p-4"
             onClick={(e) => e.stopPropagation()}
           >

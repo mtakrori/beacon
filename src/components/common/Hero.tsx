@@ -21,7 +21,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: 'easeOut' as const }}
           className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-8 uppercase tracking-widest"
         >
           <Compass size={12} className="text-indigo-500 animate-spin-slow" />
@@ -32,7 +32,7 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" as const }}
           className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.08] mb-6 max-w-4xl"
         >
           Redefining spaces & <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500 dark:from-indigo-400 dark:via-purple-400 dark:to-emerald-400">design objects.</span>
@@ -42,7 +42,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25, ease: 'easeOut' }}
+          transition={{ duration: 0.8, delay: 0.25, ease: 'easeOut' as const }}
           className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium max-w-2xl leading-relaxed mb-12"
         >
           A curated portfolio of high-end custom furniture, rare mechanical timepieces, and modernist residential architecture.
@@ -52,7 +52,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' as const }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a

@@ -69,7 +69,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut" as const }}
             className="lg:col-span-2 flex flex-col justify-center"
           >
             <p className="text-zinc-500 text-sm leading-relaxed mb-10">
@@ -115,7 +115,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            transition={{ duration: 0.7, ease: "easeOut" as const, delay: 0.1 }}
             className="lg:col-span-3 glass-card p-8 md:p-10 relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />

@@ -6,7 +6,9 @@
       "Bash(xargs sed -i 's/ease: \\\\[0\\\\.16, 1, 0\\\\.3, 1\\\\] as \\\\[number, number, number, number\\\\]/ease: \"easeOut\"/g')",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(npm run *)",
+      "Bash(xargs sed -i \"s/ease: 'easeOut'/ease: 'easeOut' as const/g\")"
     ]
   }
 }
