@@ -32,10 +32,30 @@ export const product = defineType({
       of: [{ type: 'image', options: { hotspot: true } }],
     }),
     defineField({
+      name: 'collection',
+      title: 'Collection',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Brass Collection', value: 'Brass' },
+          { title: 'Crystal Collection', value: 'Crystal' },
+        ],
+        layout: 'radio',
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories',
+      description: 'Brass: Chandeliers, Ceilings, Lanterns, Wall Brackets, Table Lamps, Floor Lamps, Accessories. Crystal: Glass Chandeliers, Maria Theresa, Large Chandeliers, Crystal Lanterns, Crystal Ceiling, Crystal Wall Light.',
       type: 'array',
       of: [{ type: 'string' }],
+      options: {
+        list: [
+          'Chandeliers', 'Ceilings', 'Lanterns', 'Wall Brackets', 'Table Lamps', 'Floor Lamps', 'Accessories',
+          'Glass Chandeliers', 'Maria Theresa', 'Large Chandeliers', 'Crystal Lanterns', 'Crystal Ceiling', 'Crystal Wall Light',
+        ],
+      },
     }),
     defineField({
       name: 'inStock',

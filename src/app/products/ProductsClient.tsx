@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { MessageSquare } from 'lucide-react';
 import type { MockProduct } from '@/sanity/client';
@@ -23,7 +24,16 @@ export default function ProductsClient({ products }: { products: MockProduct[] }
     return ['All', ...Array.from(set)];
   }, [products]);
 
+  const searchParams = useSearchParams();
   const [active, setActive] = useState('All');
+
+  // Sync filter with ?category= from category links on the homepage
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat && allCategories.includes(cat)) {
+      setActive(cat);
+    }
+  }, [searchParams, allCategories]);
 
   const filtered = useMemo(
     () => (active === 'All' ? products : products.filter((p) => p.categories?.includes(active))),
@@ -79,35 +89,41 @@ export default function ProductsClient({ products }: { products: MockProduct[] }
         >
           {filtered.map((product) => (
             <motion.div key={product._id} variants={cardVariants} className="group glass-card overflow-hidden">
-              {/* Image */}
-              <Link href={`/products/${product.slug.current}`} className="block relative aspect-[3/4] overflow-hidden">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
-                  style={{ backgroundImage: `url(${product.thumbnailUrl})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Image Section */}
+              <div className="relative aspect-[3/4] overflow-hidden">
+                
+                {/* 1. The Main Clickable Image Area */}
+                <Link href={`/products/${product.slug.current}`} className="block absolute inset-0 z-0">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
+                    style={{ backgroundImage: `url(${product.thumbnailUrl})` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {product.featuredItem && (
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-primary bg-black/70 backdrop-blur-sm px-3 py-1 border border-primary/30">
-                      Featured
-                    </span>
-                  </div>
-                )}
+                  {product.featuredItem && (
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-primary bg-black/70 backdrop-blur-sm px-3 py-1 border border-primary/30">
+                        Featured
+                      </span>
+                    </div>
+                  )}
+                </Link>
 
-                <div className="absolute top-4 right-4 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-10">
+                {/* 2. The WhatsApp Button (Now a sibling, sitting on top) */}
+                <div className="absolute top-4 right-4 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-10 pointer-events-none">
                   <a
                     href={`https://wa.me/97430305180?text=Hi%20Beacon,%20I'm%20interested%20in%20${encodeURIComponent(product.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex items-center justify-center w-10 h-10 bg-primary text-primary-foreground hover:bg-yellow-500 rounded-full shadow-[0_4px_20px_rgba(253,186,18,0.3)] transition-colors duration-300"
+                    className="flex items-center justify-center w-10 h-10 bg-primary text-primary-foreground hover:bg-yellow-500 rounded-full shadow-[0_4px_20px_rgba(253,186,18,0.3)] transition-colors duration-300 pointer-events-auto"
                     title="Enquire on WhatsApp"
                   >
                     <MessageSquare size={15} />
                   </a>
                 </div>
-              </Link>
+                
+              </div>
 
               {/* Info */}
               <Link href={`/products/${product.slug.current}`} className="block p-5 text-center">
