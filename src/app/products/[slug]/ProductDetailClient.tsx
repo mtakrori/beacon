@@ -226,12 +226,6 @@ export default function ProductDetailClient({ product }: { product: MockProduct 
                     <span className="text-zinc-300">{product.material}</span>
                   </div>
                 )}
-                {product.dimensions && (
-                  <div className="flex gap-3 text-sm">
-                    <span className="text-zinc-600 w-28 flex-shrink-0 text-[11px] uppercase tracking-wider">Dimensions</span>
-                    <span className="text-zinc-300">{product.dimensions}</span>
-                  </div>
-                )}
               </div>
             )}
           </motion.div>
