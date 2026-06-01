@@ -6,6 +6,7 @@ import { schema } from './src/sanity/schema';
 export default defineConfig({
   name: 'beacon-studio',
   title: 'Beacon Qatar',
+  basePath: '/studio',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   plugins: [
