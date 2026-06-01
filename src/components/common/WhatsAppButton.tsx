@@ -1,8 +1,15 @@
 'use client';
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function WhatsAppButton() {
+  const pathname = usePathname();
+
+  // Hide the floating button inside the Sanity Studio so it doesn't
+  // overlap the editor's Publish / Delete actions.
+  if (pathname?.startsWith('/studio')) return null;
+
   return (
     <a
       href="https://wa.me/97430305180"

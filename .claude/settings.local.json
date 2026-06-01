@@ -11,7 +11,15 @@
       "Bash(xargs sed -i \"s/ease: 'easeOut'/ease: 'easeOut' as const/g\")",
       "Bash(curl -s \"https://vx56ihj4.api.sanity.io/v2021-10-21/data/query/production?query=*%5B_type%3D%3D%22product%22%5D\")",
       "Bash(pip install *)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Sammour\\\\.claude\\\\\" -Recurse | Select-Object FullName | Where-Object { $_.FullName -match \"plugin|skill|marketplace|ui-ux\" })",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "PowerShell(head)",
+      "Bash(python scripts/search.py \"luxury lighting home decor Qatar premium showroom artisan brass crystal\" --design-system -p \"Beacon\" -f markdown)",
+      "Bash(npx tsc *)",
+      "Bash(grep -Hm1 ^description: 'C:/Users/Sammour/Documents/Antigravity/Beacon web/.claude/skills/*/SKILL.md')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/redesign)"
     ]
   }
 }
