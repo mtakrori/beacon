@@ -34,10 +34,8 @@ const collections: Collection[] = [
     title: 'Crystal Collection',
     subtitle: 'Brilliance Refined',
     categories: [
-      { name: 'GLASS CHANDELIERS', image: 'https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=800&auto=format&fit=crop', href: '/products?category=Glass Chandeliers' },
-      { name: 'MARIA THERESA', image: 'https://images.unsplash.com/photo-1543198126-a8ad8e47fb22?q=80&w=800&auto=format&fit=crop', href: '/products?category=Maria Theresa' },
-      { name: 'LARGE CHANDELIERS', image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=800&auto=format&fit=crop', href: '/products?category=Large Chandeliers' },
-      { name: 'CRYSTAL LANTERNS', image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e9d15?q=80&w=800&auto=format&fit=crop', href: '/products?category=Crystal Lanterns' },
+      { name: 'CRYSTAL CHANDELIERS', image: 'https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=800&auto=format&fit=crop', href: '/products?category=Crystal Chandeliers' },
+      { name: 'LARGE CRYSTAL CHANDELIERS', image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=800&auto=format&fit=crop', href: '/products?category=Large Crystal Chandeliers' },
       { name: 'CRYSTAL CEILING', image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=800&auto=format&fit=crop', href: '/products?category=Crystal Ceiling' },
       { name: 'CRYSTAL WALL LIGHT', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop', href: '/products?category=Crystal Wall Light' },
     ],

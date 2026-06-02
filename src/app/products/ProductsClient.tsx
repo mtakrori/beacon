@@ -4,7 +4,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { MessageSquare } from 'lucide-react';
+import { MessageSquare, Search, X } from 'lucide-react';
 import type { MockProduct } from '@/sanity/client';
 
 const containerVariants = {
@@ -26,6 +26,7 @@ export default function ProductsClient({ products }: { products: MockProduct[] }
 
   const searchParams = useSearchParams();
   const [active, setActive] = useState('All');
+  const [search, setSearch] = useState('');
 
   // Sync filter with ?category= from category links on the homepage
   useEffect(() => {
@@ -35,10 +36,19 @@ export default function ProductsClient({ products }: { products: MockProduct[] }
     }
   }, [searchParams, allCategories]);
 
-  const filtered = useMemo(
-    () => (active === 'All' ? products : products.filter((p) => p.categories?.includes(active))),
-    [active, products]
-  );
+  const filtered = useMemo(() => {
+    let result = active === 'All' ? products : products.filter((p) => p.categories?.includes(active));
+    if (search.trim()) {
+      const q = search.trim().toLowerCase();
+      result = result.filter((p) =>
+        p.title?.toLowerCase().includes(q) ||
+        p.categories?.some((c) => c.toLowerCase().includes(q)) ||
+        p.material?.toLowerCase().includes(q) ||
+        p.dimensions?.toLowerCase().includes(q)
+      );
+    }
+    return result;
+  }, [active, products, search]);
 
   return (
     <main className="min-h-screen bg-background pt-28 pb-24">
@@ -57,6 +67,26 @@ export default function ProductsClient({ products }: { products: MockProduct[] }
           </h1>
           <div className="diamond-divider mt-6 mb-12">
             <div className="diamond" />
+          </div>
+
+          {/* Search input */}
+          <div className="relative max-w-md mx-auto mb-8">
+            <Search size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search products..."
+              className="w-full bg-white/5 border border-white/10 text-white text-sm placeholder-zinc-500 pl-10 pr-10 py-3 outline-none focus:border-primary/50 transition-colors duration-300 tracking-wide"
+            />
+            {search && (
+              <button
+                onClick={() => setSearch('')}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors"
+              >
+                <X size={14} />
+              </button>
+            )}
           </div>
 
           {/* Category filters */}
@@ -144,7 +174,7 @@ export default function ProductsClient({ products }: { products: MockProduct[] }
 
         {filtered.length === 0 && (
           <p className="text-center text-zinc-500 py-20 text-sm tracking-widest uppercase">
-            No products in this category yet.
+            {search ? `No results for "${search}"` : 'No products in this category yet.'}
           </p>
         )}
       </div>

@@ -47,13 +47,13 @@ export const product = defineType({
     defineField({
       name: 'categories',
       title: 'Categories',
-      description: 'Brass: Chandeliers, Ceilings, Lanterns, Wall Brackets, Table Lamps, Floor Lamps, Accessories. Crystal: Glass Chandeliers, Maria Theresa, Large Chandeliers, Crystal Lanterns, Crystal Ceiling, Crystal Wall Light.',
+      description: 'Brass: Chandeliers, Ceilings, Lanterns, Wall Brackets, Table Lamps, Floor Lamps, Accessories. Crystal: Crystal Chandeliers, Large Crystal Chandeliers, Glass Chandeliers, Maria Theresa, Crystal Lanterns, Crystal Ceiling, Crystal Wall Light.',
       type: 'array',
       of: [{ type: 'string' }],
       options: {
         list: [
           'Chandeliers', 'Ceilings', 'Lanterns', 'Wall Brackets', 'Table Lamps', 'Floor Lamps', 'Accessories',
-          'Glass Chandeliers', 'Maria Theresa', 'Large Chandeliers', 'Crystal Lanterns', 'Crystal Ceiling', 'Crystal Wall Light',
+          'Crystal Chandeliers', 'Large Crystal Chandeliers', 'Glass Chandeliers', 'Maria Theresa', 'Crystal Lanterns', 'Crystal Ceiling', 'Crystal Wall Light',
         ],
       },
     }),
