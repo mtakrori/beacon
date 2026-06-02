@@ -44,3 +44,8 @@ next-env.d.ts
 products.ndjson
 convert_products.py
 Beacon-Products-Template.xlsx
+
+brass_ids.txt
+brass_delete_args.txt
+delete_old.txt
+*.ndjson
