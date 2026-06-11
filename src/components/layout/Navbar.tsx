@@ -57,7 +57,7 @@ export default function Navbar() {
               <img
                 src="/beacon-logo.svg"
                 alt="Beacon — Decor & Light L.L.C"
-                className="h-9 md:h-11 w-auto"
+                className="h-12 md:h-16 w-auto"
               />
             </Link>
 

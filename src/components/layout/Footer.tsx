@@ -18,7 +18,7 @@ export default function Footer() {
               <img
                 src="/beacon-logo.svg"
                 alt="Beacon — Decor & Light L.L.C"
-                className="h-12 w-auto"
+                className="h-32 w-auto"
               />
             </Link>
             <p className="text-zinc-500 leading-relaxed text-sm">
