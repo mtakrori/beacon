@@ -49,3 +49,6 @@ brass_ids.txt
 brass_delete_args.txt
 delete_old.txt
 *.ndjson
+
+# Local working folder for source images (originals live here, optimized copies go to public/)
+/incoming-images/

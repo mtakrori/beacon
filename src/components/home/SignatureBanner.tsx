@@ -38,8 +38,6 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
 
 const stats = [
   { value: 245, suffix: '+', label: 'Projects Completed' },
-  { value: 76, suffix: '', label: 'Expert Team Members' },
-  { value: 24, suffix: '', label: 'Industry Awards' },
   { value: 534, suffix: '+', label: 'Satisfied Clients' },
 ];
 
@@ -84,7 +82,7 @@ export default function SignatureBanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+          className="grid grid-cols-2 gap-8 md:gap-12 max-w-2xl mx-auto"
         >
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col items-center gap-3 group">

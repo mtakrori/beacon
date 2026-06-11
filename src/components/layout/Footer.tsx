@@ -40,19 +40,19 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="flex flex-col gap-4">
             <h4 className="text-white font-semibold tracking-[0.2em] text-xs uppercase mb-2">Company</h4>
-            <Link href="#" className="text-zinc-500 hover:text-primary transition-colors text-sm">About Us</Link>
-            <Link href="#" className="text-zinc-500 hover:text-primary transition-colors text-sm">Our Showroom</Link>
-            <Link href="#contact" className="text-zinc-500 hover:text-primary transition-colors text-sm">Contact Us</Link>
-            <Link href="#" className="text-zinc-500 hover:text-primary transition-colors text-sm">Careers</Link>
+            <Link href="/#about" className="text-zinc-500 hover:text-primary transition-colors text-sm">About Us</Link>
+            <Link href="/#services" className="text-zinc-500 hover:text-primary transition-colors text-sm">Our Services</Link>
+            <Link href="/#projects" className="text-zinc-500 hover:text-primary transition-colors text-sm">Our Projects</Link>
+            <Link href="/#contact" className="text-zinc-500 hover:text-primary transition-colors text-sm">Contact Us</Link>
           </div>
 
           {/* Categories */}
           <div className="flex flex-col gap-4">
             <h4 className="text-white font-semibold tracking-[0.2em] text-xs uppercase mb-2">Categories</h4>
-            <Link href="#" className="text-zinc-500 hover:text-primary transition-colors text-sm">Chandeliers</Link>
-            <Link href="#" className="text-zinc-500 hover:text-primary transition-colors text-sm">Pendant Lights</Link>
-            <Link href="#" className="text-zinc-500 hover:text-primary transition-colors text-sm">Wall Lights</Link>
-            <Link href="#" className="text-zinc-500 hover:text-primary transition-colors text-sm">Table Lamps</Link>
+            <Link href="/products?category=Chandeliers" className="text-zinc-500 hover:text-primary transition-colors text-sm">Brass Chandeliers</Link>
+            <Link href="/products?category=Lanterns" className="text-zinc-500 hover:text-primary transition-colors text-sm">Lanterns</Link>
+            <Link href="/products?category=Large Crystal Chandeliers" className="text-zinc-500 hover:text-primary transition-colors text-sm">Crystal Chandeliers</Link>
+            <Link href="/products" className="text-zinc-500 hover:text-primary transition-colors text-sm">All Products</Link>
           </div>
 
           {/* Contact Us */}
@@ -79,9 +79,8 @@ export default function Footer() {
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-600">
           <p>&copy; {new Date().getFullYear()} Beacon Qatar. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Showrooms</Link>
+            <a href="/beacon-profile.pdf" download="Beacon-Company-Profile.pdf" className="hover:text-primary transition-colors">Company Profile</a>
+            <Link href="/#contact" className="hover:text-primary transition-colors">Visit Our Showroom</Link>
           </div>
         </div>
       </div>

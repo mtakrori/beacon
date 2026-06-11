@@ -11,6 +11,7 @@ export interface Product {
   price: number;
   image: string;
   category: string;
+  href?: string;
 }
 
 interface ProductSectionProps {
@@ -108,12 +109,14 @@ export default function ProductSection({ title, subtitle, products, bannerImage,
             >
               {/* Product Image */}
               <div className="relative aspect-[3/4] overflow-hidden">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110"
-                  style={{ backgroundImage: `url(${product.image})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+                <Link href={product.href ?? '/products'} className="block absolute inset-0">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110"
+                    style={{ backgroundImage: `url(${product.image})` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </Link>
+
                 {/* Hover WhatsApp Enquiry */}
                 <div className="absolute top-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                   <a 
@@ -129,7 +132,7 @@ export default function ProductSection({ title, subtitle, products, bannerImage,
               </div>
               
               {/* Details */}
-              <div className="p-5 text-center">
+              <Link href={product.href ?? '/products'} className="block p-5 text-center">
                 <p className="text-[10px] text-primary/70 uppercase tracking-[0.25em] mb-2 font-semibold">
                   {product.category}
                 </p>
@@ -140,7 +143,7 @@ export default function ProductSection({ title, subtitle, products, bannerImage,
                 <p className="text-zinc-500 text-[10px] tracking-[0.2em] uppercase font-medium">
                   Available On Request
                 </p>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

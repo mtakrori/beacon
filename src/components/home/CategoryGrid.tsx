@@ -13,6 +13,7 @@ interface Category {
 interface Collection {
   title: string;
   subtitle: string;
+  aspect: string;
   categories: Category[];
 }
 
@@ -20,24 +21,28 @@ const collections: Collection[] = [
   {
     title: 'Brass Collection',
     subtitle: 'Handcrafted Heritage',
+    aspect: 'aspect-[2/3]',
     categories: [
-      { name: 'CHANDELIERS', image: 'https://images.unsplash.com/photo-1543198126-a8ad8e47fb22?q=80&w=800&auto=format&fit=crop', href: '/products?category=Chandeliers' },
-      { name: 'CEILINGS', image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=800&auto=format&fit=crop', href: '/products?category=Ceilings' },
-      { name: 'LANTERNS', image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e9d15?q=80&w=800&auto=format&fit=crop', href: '/products?category=Lanterns' },
-      { name: 'WALL BRACKETS', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop', href: '/products?category=Wall Brackets' },
-      { name: 'TABLE LAMPS', image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=800&auto=format&fit=crop', href: '/products?category=Table Lamps' },
-      { name: 'FLOOR LAMPS', image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=800&auto=format&fit=crop', href: '/products?category=Floor Lamps' },
-      { name: 'ACCESSORIES', image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=800&auto=format&fit=crop', href: '/products?category=Accessories' },
+      { name: 'CHANDELIERS', image: '/images/categories/brass-chandeliers.jpg', href: '/products?category=Chandeliers' },
+      { name: 'CEILINGS', image: '/images/categories/brass-ceilings.jpg', href: '/products?category=Ceilings' },
+      { name: 'LANTERNS', image: '/images/categories/brass-lanterns.jpg', href: '/products?category=Lanterns' },
+      { name: 'WALL BRACKETS', image: '/images/categories/brass-wall-brackets.jpg', href: '/products?category=Wall Brackets' },
+      { name: 'TABLE LAMPS', image: '/images/categories/brass-table-lamps.jpg', href: '/products?category=Table Lamps' },
+      { name: 'FLOOR LAMPS', image: '/images/categories/brass-floor-lamps.jpg', href: '/products?category=Floor Lamps' },
+      { name: 'ACCESSORIES', image: '/images/categories/brass-accessories.jpg', href: '/products?category=Accessories' },
     ],
   },
   {
     title: 'Crystal Collection',
     subtitle: 'Brilliance Refined',
+    aspect: 'aspect-[2/3]',
     categories: [
-      { name: 'CRYSTAL CHANDELIERS', image: 'https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=800&auto=format&fit=crop', href: '/products?category=Crystal Chandeliers' },
-      { name: 'LARGE CRYSTAL CHANDELIERS', image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=800&auto=format&fit=crop', href: '/products?category=Large Crystal Chandeliers' },
-      { name: 'CRYSTAL CEILING', image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=800&auto=format&fit=crop', href: '/products?category=Crystal Ceiling' },
-      { name: 'CRYSTAL WALL LIGHT', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop', href: '/products?category=Crystal Wall Light' },
+      { name: 'GLASS CHANDELIERS', image: '/images/categories/crystal-glass-chandeliers.jpg', href: '/products?category=Glass Chandeliers' },
+      { name: 'MARIA THERESA CHANDELIERS', image: '/images/categories/crystal-maria-theresa.jpg', href: '/products?category=Maria Theresa' },
+      { name: 'LARGE CRYSTAL CHANDELIERS', image: '/images/categories/crystal-large-chandeliers.jpg', href: '/products?category=Large Crystal Chandeliers' },
+      { name: 'CRYSTAL LANTERNS', image: '/images/categories/crystal-lanterns.jpg', href: '/products?category=Crystal Lanterns' },
+      { name: 'CRYSTAL CEILING', image: '/images/categories/crystal-ceiling.jpg', href: '/products?category=Crystal Ceiling' },
+      { name: 'CRYSTAL WALL LIGHT', image: '/images/categories/crystal-wall-light.jpg', href: '/products?category=Crystal Wall Light' },
     ],
   },
 ];
@@ -52,10 +57,10 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
 };
 
-function CategoryCard({ cat }: { cat: Category }) {
+function CategoryCard({ cat, aspect }: { cat: Category; aspect: string }) {
   return (
     <motion.div variants={itemVariants}>
-      <Link href={cat.href} className="group relative block aspect-[4/3] overflow-hidden">
+      <Link href={cat.href} className={`group relative block ${aspect} overflow-hidden`}>
         <div
           className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-out group-hover:scale-110"
           style={{ backgroundImage: `url(${cat.image})` }}
@@ -106,7 +111,7 @@ export default function CategoryGrid() {
               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5"
             >
               {collection.categories.map((cat) => (
-                <CategoryCard key={cat.name} cat={cat} />
+                <CategoryCard key={cat.name} cat={cat} aspect={collection.aspect} />
               ))}
             </motion.div>
           </div>

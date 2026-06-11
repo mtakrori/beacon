@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Search, Globe } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Navbar() {
@@ -80,10 +80,7 @@ export default function Navbar() {
               <button className="hidden md:flex items-center justify-center w-9 h-9 rounded-full border border-white/10 text-zinc-400 hover:text-white hover:border-white/30 transition-all duration-300">
                 <Search size={14} />
               </button>
-              <button className="hidden md:flex items-center gap-1.5 text-[11px] text-zinc-400 hover:text-white tracking-wider transition-all duration-300">
-                <Globe size={14} />
-                <span>EN</span>
-              </button>
+              {/* Language switcher hidden until the Arabic site is ready */}
               <a
                 href="https://wa.me/97430305180"
                 target="_blank"
