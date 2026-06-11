@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Search } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Navbar() {
@@ -77,9 +77,6 @@ export default function Navbar() {
 
             {/* Right Icons */}
             <div className="flex items-center gap-3 md:gap-5">
-              <button className="hidden md:flex items-center justify-center w-9 h-9 rounded-full border border-white/10 text-zinc-400 hover:text-white hover:border-white/30 transition-all duration-300">
-                <Search size={14} />
-              </button>
               {/* Language switcher hidden until the Arabic site is ready */}
               <a
                 href="https://wa.me/97430305180"
@@ -104,16 +101,6 @@ export default function Navbar() {
             transition={{ type: 'spring', damping: 30, stiffness: 200 }}
             className="fixed top-0 left-0 bottom-0 w-4/5 max-w-sm z-40 md:hidden glass-card pt-24 pb-8 flex flex-col"
           >
-            {/* Mobile Search */}
-            <div className="px-6 mb-10 relative">
-              <input
-                type="text"
-                placeholder="Search showroom..."
-                className="w-full bg-white/5 text-white text-sm py-3 px-5 pl-11 border border-white/10 focus:outline-none focus:border-primary transition-colors rounded-none"
-              />
-              <Search className="absolute left-10 top-1/2 -translate-y-1/2 text-zinc-500" size={16} />
-            </div>
-
             <div className="px-6 flex flex-col gap-1 overflow-y-auto">
               {navLinks.map((link, i) => (
                 <motion.div
